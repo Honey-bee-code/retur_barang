@@ -14,7 +14,7 @@
                 <div class="panel-body">
                     <div class="pull-right">
                         <a href="<?=site_url('user')?>" class="btn btn-warning btn-sm">
-                        <i class="fa fa-undo"></i> Kembali</a>
+                        <i class="fa fa-undo"></i> Kembali</a> 
                     </div>
                     <br>
                     <div class="row">
