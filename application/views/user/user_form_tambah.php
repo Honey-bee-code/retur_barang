@@ -60,8 +60,6 @@
                                     <small>(Biarkan kosong jika tidak ada gambar)</small>
                                     <input name="photo" type="file" accept="image/*" class="form-control">
                                 </div>
-                                
-                                
                                 <div class="form-group">
                                     <button type="submit" id="submit" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Simpan</button>
                                     <button type="reset" class="btn btn-sm"><i class="fa fa-refresh"></i> Reset</button>
