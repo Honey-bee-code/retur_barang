@@ -24,32 +24,37 @@
                                     <label for="tanggal">Tanggal *</label>
                                     <input type="date" name="tanggal" value="<?=date('Y-m-d')?>" class="form-control">
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group <?=form_error('kurir') ? 'has-error' : null?>">
                                     <label for="kurir">Barang di bawa oleh *</label>
-                                    <input type="text" name="kurir" class="form-control">
+                                    <input type="text" name="kurir" value="<?=set_value('kurir')?>" class="form-control">
+                                    <?=form_error('kurir')?>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group <?=form_error('barang') ? 'has-error' : null?>">
                                     <label for="barang">Cari Barang *</label>
-                                    <input type="text" name="barang" class="form-control">
+                                    <input type="text" name="barang" value="<?=set_value('barang')?>" class="form-control">
+                                    <?=form_error('barang')?>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group <?=form_error('toko') ? 'has-error' : null?>">
                                     <label for="toko">Nama Toko *</label>
-                                    <input type="text" name="toko" class="form-control">
+                                    <input type="text" name="toko" value="<?=set_value('toko')?>" class="form-control">
+                                    <?=form_error('toko')?>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group <?=form_error('qty') ? 'has-error' : null?>">
                                     <label for="qty">Quantity *</label>
-                                    <input type="number" name="qty" class="form-control">
+                                    <input type="number" name="qty" value="<?=set_value('qty')?>" class="form-control">
+                                    <?=form_error('qty')?>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group <?=form_error('kondisi[]') ? 'has-error' : null?>">
                                     <label for="kondisi">Kondisi Barang *</label>
                                     <div>
                                         <label class="radio-inline">
-                                            <input type="radio" name="kondisi" value="Bagus" required> Bagus
+                                            <input type="radio" name="kondisi[]" value="Bagus"> Bagus
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" name="kondisi" value="Jelek"> Jelek
+                                            <input type="radio" name="kondisi[]" value="Jelek"> Jelek
                                         </label>
                                     </div>
+                                    <?=form_error('kondisi[]')?>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" id="submit" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Simpan</button>
