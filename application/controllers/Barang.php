@@ -13,9 +13,7 @@ class Barang extends CI_Controller {
 
 	public function index()
 	{
-		tidak_login();
-		$data['row'] = $this->barang_m->get();
-		$this->template->load('template', 'barang/barang_data', $data); 
+		$this->template->load('template', 'barang/barang_data'); 
 	}
 
 	public function get($id = null)

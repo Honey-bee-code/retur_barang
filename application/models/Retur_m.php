@@ -15,7 +15,13 @@ class Retur_m extends CI_Model {
 
     public function tambah($post) 
     {
+        $param['id_barang'] = $post['barang'];
+        $param['kondisi'] = $post['kondisi'];
+        $param['qty'] = $post['qty'];
+        $param['toko'] = $post['toko'];
+        $param['kurir'] = $post['kurir'];
         $param['tanggal'] = $post['tanggal'];
+        $param['id_user'] = $this->session->userdata('userid');
         
         $this->db->insert('tb_retur', $param);
     }
