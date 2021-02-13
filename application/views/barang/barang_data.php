@@ -21,10 +21,9 @@
                 </div>
                 <div class="panel-body">
                     <div>
-                        <table class="table table-bordered table-striped" id="tabel_barang">
+                        <table class="table table-bordered table-striped table-hover" id="tabel_barang">
                             <thead>
                                 <tr>
-                                    <!-- <th class="text-center">No.</th> -->
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Nama Toko</th>
