@@ -53,9 +53,9 @@ class Barang extends CI_Controller {
         }
 	}
 
-	public function hapus()
+	public function hapus($id)
     {
-        $id = $this->input->get('id');
+        // $id = $this->input->post('id');
         
         $user = $this->barang_m->get($id)->row();
 		
@@ -66,7 +66,49 @@ class Barang extends CI_Controller {
         }
         echo "<script>window.location='" .site_url('barang'). "'</script>";
         
-    }
+	}
+	
+	public function edit($id)
+    {
+        $this->form_validation->set_rules('kode', 'Kode barang', 'required|callback_cek_kode');
+		$this->form_validation->set_rules('nama', 'Nama Barang', 'required');
+		$this->form_validation->set_rules('toko', 'Toko', 'required');
+
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+
+		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+
+        if($this->form_validation->run() == FALSE) {
+			$query = $data['row'] = $this->barang_m->get($id);
+            if($query->num_rows() > 0){
+                $data['row'] = $query->row();
+				$this->template->load('template', 'barang/barang_form_edit', $data);
+			} else {
+				echo "<script>alert('Data tidak ditemukan');";
+				echo "window.location='" .site_url('user'). "';</script>";
+			}
+        } else {
+            $post = $this->input->post(null, TRUE);
+           
+			$this->barang_m->edit($post);
+			if($this->db->affected_rows() > 0){
+				echo "<script>alert('Data berhasil disimpan')</script>";
+			}
+			echo "<script>window.location='" .site_url('barang'). "'</script>";
+        }
+	}
+
+    function cek_kode(){
+        $post = $this->input->post(null, TRUE);
+        $clean = addslashes($post['kode']);
+        $query = $this->db->query("SELECT * FROM tb_barang WHERE kode_barang = '$clean' AND id_barang != '$post[id]'");
+        if($query->num_rows() > 0){
+            $this->form_validation->set_message('cek_kode', '{field} ini sudah dipakai, silahkan ganti');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    } 
 
 	public function good()
 	{

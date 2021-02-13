@@ -17,25 +17,26 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                Tambah Data Barang
+                Edit Data Barang
                 </div>
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
                             <form action="" method="post">
+                                <input type="text" name="id" value="<?=$row->id_barang?>">
                                 <div class="form-group <?=form_error('kode') ? 'has-error' : null?>">
                                     <label for="kode">Kode Barang *</label>
-                                    <input type="text" name="kode" value="<?=set_value('kode')?>" class="form-control" autofocus>
+                                    <input type="text" name="kode" value="<?=$this->input->post('kode') ?? $row->kode_barang?>" class="form-control">
                                     <?=form_error('kode')?>
                                 </div>
                                 <div class="form-group <?=form_error('nama') ? 'has-error' : null?>">
                                     <label for="nama">Nama Barang *</label>
-                                    <input type="text" name="nama" value="<?=set_value('nama')?>" class="form-control">
+                                    <input type="text" name="nama" value="<?=$this->input->post('nama') ?? $row->nama_barang?>" class="form-control">
                                     <?=form_error('nama')?>
                                 </div>
                                 <div class="form-group <?=form_error('toko') ? 'has-error' : null?>">
                                     <label for="toko">Nama Toko *</label>
-                                    <input type="text" name="toko" value="<?=set_value('toko')?>" class="form-control">
+                                    <input type="text" name="toko" value="<?=$this->input->post('toko') ?? $row->nama_toko?>" class="form-control">
                                     <?=form_error('toko')?>
                                 </div>
                                 <div class="form-group">
