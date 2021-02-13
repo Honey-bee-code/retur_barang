@@ -32,8 +32,16 @@
                                     <?=form_error('kurir')?>
                                 </div>
                                 <div class="form-group <?=form_error('barang') ? 'has-error' : null?>">
-                                    <label for="barang">Id Barang *</label>
-                                    <input type="text" name="barang" value="<?=set_value('barang')?>" class="form-control">
+                                    <label for="barang">Cari Barang *</label>
+                                    <div class="form-group input-group">
+                                        <input type="hidden" name="barang" id="id_barang" value="<?=set_value('barang')?>">
+                                        <input type="text" name="kode_barang" id="kode_barang" value="<?=set_value('kode_barang')?>" class="form-control">
+                                        <span class="input-group-btn">
+                                            <button type="button" class="btn btn-flat btn-info" data-toggle="modal" data-target="#modal-barang">
+                                            <i class="fa fa-search"></i> Cari</button>
+                                        </span>
+                                    </div>
+                                        <input type="text" name="nama_barang" id="nama_barang" value="<?=set_value('nama_barang')?>" class="form-control" readonly>
                                     <?=form_error('barang')?>
                                 </div>
                                 <div class="form-group <?=form_error('toko') ? 'has-error' : null?>">
@@ -69,3 +77,30 @@
             </div>
         </div>
     </div>
+    
+    <div class="modal fade" id="modal-barang">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Silahkan Pilih Barang</h4>
+                </div>
+                <div class="modal-body table-responsive">
+                    <table class="table table-bordered table-striped table-hover" id="tabel_barang_modal">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Kode Barang</th>
+                                <th>Nama Barang</th>
+                                <th>Opsi</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    

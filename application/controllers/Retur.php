@@ -53,6 +53,19 @@ class Retur extends CI_Controller {
         }
 	}
 
+	public function hapus($id)
+    {
+        
+		
+        $this->retur_m->hapus($id);
+        // $error = $this->db->error();
+		if($this->db->affected_rows() > 0){
+            echo "<script>alert('Data berhasil dihapus')</script>";
+        }
+        echo "<script>window.location='" .site_url('retur'). "'</script>";
+        
+	}
+	
 	public function data_json()
 	{
 		// DB table to use
@@ -67,14 +80,15 @@ class Retur extends CI_Controller {
 		// indexes
 		$columns = array(
 			
-			array( 'db' => '',   		'dt' => 0 ),
-			array( 'db' => 'tanggal',   'dt' => 1 ),
-			array( 'db' => 'id_barang', 'dt' => 2 ),
-			array( 'db' => 'kondisi', 	'dt' => 3 ),
-			array( 'db' => 'qty',       'dt' => 4 ),
-			array( 'db' => 'toko',      'dt' => 5 ),
-			array( 'db' => 'kurir',     'dt' => 6 ),
-			array( 'db' => 'id_retur',  'dt' => 7 ),
+			array( 'db' => '',   			'dt' => 0 ),
+			array( 'db' => 'tanggal',   	'dt' => 1 ),
+			array( 'db' => 'kode_barang',	'dt' => 2 ),
+			array( 'db' => 'nama_barang',	'dt' => 3 ),
+			array( 'db' => 'kondisi', 		'dt' => 4 ),
+			array( 'db' => 'qty',       	'dt' => 5 ),
+			array( 'db' => 'toko',      	'dt' => 6 ),
+			array( 'db' => 'kurir',     	'dt' => 7 ),
+			array( 'db' => 'id_retur',  	'dt' => 8 ),
 
 		);
 		

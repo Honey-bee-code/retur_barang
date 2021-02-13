@@ -20,12 +20,13 @@
                 </div>
                 <div class="panel-body">
                     <div>
-                        <table class="table table-bordered table-striped" id="tabel_retur">
+                        <table class="table table-bordered table-striped table-hover" id="tabel_retur">
                             <thead>
                                 <tr>
                                     <th class="text-center">No.</th>
                                     <th>Tanggal</th>
                                     <th>Kode Barang</th>
+                                    <th>Nama Barang</th>
                                     <th>Kondisi</th>
                                     <th>Qty</th>
                                     <th>Nama Toko</th>
