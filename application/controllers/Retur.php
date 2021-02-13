@@ -65,6 +65,39 @@ class Retur extends CI_Controller {
         echo "<script>window.location='" .site_url('retur'). "'</script>";
         
 	}
+
+	public function edit($id)
+    {
+        $this->form_validation->set_rules('kurir', 'Yang bawa barang', 'required');
+		$this->form_validation->set_rules('barang', 'Barang', 'required');
+		$this->form_validation->set_rules('toko', 'Toko', 'required');
+		$this->form_validation->set_rules('qty', 'Quantity', 'required|greater_than[0]', 
+		array('greater_than' =>'Jumlah %s minimal 1'));
+		$this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+
+        $this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+
+        if($this->form_validation->run() == FALSE) {
+			$query = $data['row'] = $this->retur_m->get($id);
+            if($query->num_rows() > 0){
+                $data['row'] = $query->row();
+				$this->template->load('template', 'retur/retur_form_edit', $data);
+			} else {
+				echo "<script>alert('Data tidak ditemukan');";
+				echo "window.location='" .site_url('retur'). "';</script>";
+			}
+        } else {
+            $post = $this->input->post(null, TRUE);
+           
+			$this->retur_m->edit($post);
+			if($this->db->affected_rows() > 0){
+				echo "<script>alert('Data berhasil disimpan')</script>";
+			}
+			echo "<script>window.location='" .site_url('retur'). "'</script>";
+        }
+	}
 	
 	public function data_json()
 	{

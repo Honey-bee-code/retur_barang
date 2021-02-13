@@ -36,19 +36,18 @@ class Retur_m extends CI_Model {
 
     public function edit($post)
     {
-        $param['nama'] = $post['nama'] ;
-        $param['username'] = $post['username'];
-        if(!empty($post['password'])){
-            $param['password'] = sha1($post['password']);
-        }
-        $param['alamat'] = $post['alamat'];
-        $param['level'] = $post['level'];
+        $param['id_barang'] = $post['barang'];
+        $param['kode_barang'] = $post['kode_barang'];
+        $param['nama_barang'] = $post['nama_barang'];
+        $param['kondisi'] = $post['kondisi'];
+        $param['qty'] = $post['qty'];
+        $param['toko'] = $post['toko'];
+        $param['kurir'] = $post['kurir'];
+        $param['tanggal'] = $post['tanggal'];
+        $param['id_user'] = $this->session->userdata('userid');
 
-        if($post['photo'] != null) {
-            $param['photo'] = $post['photo'];
-        }
-        $this->db->where('id_user', $post['userid']);
-        $this->db->update('user', $param);
+        $this->db->where('id_retur', $post['id']);
+        $this->db->update('tb_retur', $param);
     }
 
 }

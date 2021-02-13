@@ -78,7 +78,7 @@ class Barang extends CI_Controller {
 				$this->template->load('template', 'barang/barang_form_edit', $data);
 			} else {
 				echo "<script>alert('Data tidak ditemukan');";
-				echo "window.location='" .site_url('user'). "';</script>";
+				echo "window.location='" .site_url('barang'). "';</script>";
 			}
         } else {
             $post = $this->input->post(null, TRUE);
