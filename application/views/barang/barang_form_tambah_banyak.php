@@ -21,8 +21,8 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
-                            <form action="proses.php" method="post">
-                                <input type="hidden" name="total" value="<?=$_POST['jumlah_tambah']?>">
+                            <form action="<?=site_url('barang/tambah_banyak_proses')?>" method="post">
+                                <input type="text" name="total" value="<?=$this->input->post('jumlah_tambah')?>">
                                 <table class="table">
                                     <tr>
                                         <th>No.</th>
@@ -30,14 +30,14 @@
                                         <th>Nama Barang</th>
                                     </tr>
                                     <?php
-                                    for ($i=1; $i<=$_POST['jumlah_tambah'] ; $i++) { ?>
+                                    for ($i=1; $i<=$this->input->post('jumlah_tambah') ; $i++) { ?>
                                         <tr>
                                             <td><?=$i?></td>
                                             <td>
-                                                <input type="text" name="nama-<?=$i?>" class="form-control" required>
+                                                <input type="text" name="kode-<?=$i?>" class="form-control" required>
                                             </td>
                                             <td>
-                                                <input type="text" name="gedung-<?=$i?>" class="form-control" required>
+                                                <input type="text" name="nama-<?=$i?>" class="form-control" required>
                                             </td>
                                         </tr>
                                     <?php

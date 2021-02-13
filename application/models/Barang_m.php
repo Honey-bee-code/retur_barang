@@ -23,10 +23,14 @@ class Barang_m extends CI_Model {
 
     public function tambah_banyak($post) 
     {
-        $param['kode_barang'] = $post['kode'];
-        $param['nama_barang'] = $post['nama'];
-        $param['id_user'] = $this->session->userdata('userid');
-        $this->db->insert('tb_barang', $param);
+        $total = $this->input->post('total');
+
+        for ($i=1; $i <= $total; $i++) {
+            $param['kode_barang'] = $post['kode-'.$i];
+            $param['nama_barang'] = $post['nama-'.$i];
+            $param['id_user'] = $this->session->userdata('userid');
+            $this->db->insert('tb_barang', $param);
+        }
     }
 
     public function hapus($id)

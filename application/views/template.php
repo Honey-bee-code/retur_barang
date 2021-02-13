@@ -68,34 +68,18 @@
             <div class="navbar-default navbar-static-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li <?=$this->uri->segment(1) == 'barang' || $this->uri->segment(1) == 'retur' || $this->uri->segment(1) == 'good' ? 'class="active"' : ''?>>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i> Master Data<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'all' ? 'style="background-color: #DCDCDC"' : ''?>>
-                                    <a href="<?=base_url('barang')?>">Data Barang</a>
-                                </li>
-                                <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'good' ? 'style="background-color: #DCDCDC"' : ''?>>
-                                    <a href="<?=base_url('barang/good')?>">Good Product</a>
-                                </li>
-                                <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'bad' ? 'style="background-color: #DCDCDC"' : ''?>>
-                                    <a href="<?=base_url('barang/bad')?>">Bad Product</a>
-                                </li>
-                        <li <?=$this->uri->segment(1) == 'retur' ? 'style="background-color: #DCDCDC"' : ''?>>
-                            <a href="<?=site_url('retur')?>">Data Retur</a>
+                        <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == '' ? 'style="background-color: #FFFFFF"' : ''?>>
+                            <a href="<?=base_url('barang')?>"><i class="fa fa-dashboard fa-fw"></i> Data Barang</a>
                         </li>
-                            </ul>
+                        <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'good' ? 'style="background-color: #FFFFFF"' : ''?>>
+                            <a href="<?=base_url('barang/good')?>"><i class="fa fa-dashboard fa-fw"></i> Good Product</a>
                         </li>
-                        <!-- <li>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Opsi 2<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li>
-                                    <a href="">Form Cppk</a>
-                                </li>
-                                <li>
-                                    <a href="#">Laporan</a>
-                                </li>
-                            </ul>
-                        </li> -->
+                        <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'bad' ? 'style="background-color: #FFFFFF"' : ''?>>
+                            <a href="<?=base_url('barang/bad')?>"><i class="fa fa-dashboard fa-fw"></i> Bad Product</a>
+                        </li>
+                        <li <?=$this->uri->segment(1) == 'retur' ? 'style="background-color: #FFFFFF"' : ''?>>
+                            <a href="<?=site_url('retur')?>"><i class="fa fa-dashboard fa-fw"></i> Data Retur</a>
+                        </li>
                     </ul>
                     <!-- /#side-menu -->
                 </div>

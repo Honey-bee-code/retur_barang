@@ -14,7 +14,7 @@
     <br>
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4">
-            <form action="<?=site_url('barang/tambah_banyak')?>" method="post">
+            <form action="<?=site_url('barang/tambah_banyak_form')?>" method="post">
                 <div class="form-group">
                     <label for="jumlah_tambah">Jumlah Record yang Akan Ditambahkan</label>
                     <input type="text" name="jumlah_tambah" id="jumlah_tambah" maxlength="2" pattern="[0-9]+" class="form-control" required>
