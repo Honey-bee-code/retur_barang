@@ -4,7 +4,15 @@
             <h1 class="page-header">Retur</h1>
         </div>
     </div>
-
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="pull-right">
+                <a href="<?=site_url('retur')?>" class="btn btn-warning btn-sm">
+                <i class="fa fa-undo"></i> Kembali</a>
+            </div>
+        </div>
+    </div>
+    <br>
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-default">
@@ -12,11 +20,6 @@
                 Tambah Data Retur
                 </div>
                 <div class="panel-body">
-                    <div class="pull-right">
-                        <a href="<?=site_url('retur')?>" class="btn btn-warning btn-sm">
-                        <i class="fa fa-undo"></i> Kembali</a>
-                    </div>
-                    <br>
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
                             <form action="" method="post">

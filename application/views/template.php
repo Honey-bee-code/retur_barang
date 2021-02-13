@@ -130,7 +130,7 @@
 <script src="<?=base_url()?>_assets/js/sb-admin.js"></script>
 <script>
 $(document).ready(function() {
-    $('#tabel').dataTable({
+    $('#tabel_retur').dataTable({
         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
         columnDefs: [
             {
@@ -152,7 +152,44 @@ $(document).ready(function() {
                     "lengthMenu":     "Tampilkan _MENU_ data",
                     "loadingRecords": "Memuat...",
                     "processing":     "Sedang memproses...",
-                    "search":         "Search:",
+                    "search":         "Cari: ",
+                    "zeroRecords":    "No matching records found",
+                    "paginate": {
+                        "first":      "Awal",
+                        "last":       "Akhir",
+                        "next":       "Sesudahnya",
+                        "previous":   "Sebelumnya"
+                    },
+                    "aria": {
+                        "sortAscending":  ": activate to sort column ascending",
+                        "sortDescending": ": activate to sort column descending"
+                    }
+                }
+    });
+
+    $('#tabel_barang').dataTable({
+        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+        columnDefs: [
+            {
+                "searchable": false,
+                "orderable": false,
+                "targets": [0, 4]
+            }
+        ],
+        order: [1, "asc"],
+        language : 
+                {
+                    "decimal":        "",
+                    "emptyTable":     "Data tidak ditemukan",
+                    "info":           "Menampilkan _START_ sampai _END_ dari _TOTAL_ jumlah data",
+                    "infoEmpty":      "Menampilkan 0 sampai 0 dari 0 data",
+                    "infoFiltered":   "(filtered from _MAX_ total entries)",
+                    "infoPostFix":    "",
+                    "thousands":      ",",
+                    "lengthMenu":     "Tampilkan _MENU_ data",
+                    "loadingRecords": "Memuat...",
+                    "processing":     "Sedang memproses...",
+                    "search":         "Cari: ",
                     "zeroRecords":    "No matching records found",
                     "paginate": {
                         "first":      "Awal",
