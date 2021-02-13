@@ -80,18 +80,16 @@ class User extends CI_Controller {
     {
         $id = $this->input->post('userid');
         
-        $user = $this->user_m->get($id)->row();
-		if($user->photo != null){
-			$target_file = './_uploads/photos/'.$user->photo;
-			unlink($target_file); // menghapus gambar
-		}
-
-
         $this->user_m->hapus($id);
         $error = $this->db->error();
 		if($error['code'] != null){
-			echo "<script>alert('Data tidak bisa dihapus karena sudah berelasi')</script>";
+            echo "<script>alert('Data tidak bisa dihapus karena sudah berelasi')</script>";
 		} elseif($this->db->affected_rows() > 0){
+            $user = $this->user_m->get($id)->row();
+            if($user->photo != null){
+                $target_file = './_uploads/photos/'.$user->photo;
+                unlink($target_file); 
+            }
             echo "<script>alert('Data berhasil dihapus')</script>";
         }
         echo "<script>window.location='" .site_url('user'). "'</script>";

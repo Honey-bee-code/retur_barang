@@ -73,7 +73,7 @@
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Master Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'all' ? 'style="background-color: #DCDCDC"' : ''?>>
-                                    <a href="<?=base_url('barang/all')?>">Data Barang</a>
+                                    <a href="<?=base_url('barang')?>">Data Barang</a>
                                 </li>
                                 <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'good' ? 'style="background-color: #DCDCDC"' : ''?>>
                                     <a href="<?=base_url('barang/good')?>">Good Product</a>
@@ -132,6 +132,7 @@
 $(document).ready(function() {
     $('#tabel_retur').dataTable({
         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
+        
         columnDefs: [
             {
                 "searchable": false,
@@ -169,14 +170,22 @@ $(document).ready(function() {
 
     $('#tabel_barang').dataTable({
         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-        columnDefs: [
-            {
-                "searchable": false,
-                "orderable": false,
-                "targets": [0, 4]
-            }
-        ],
-        order: [1, "asc"],
+        "processing": true,
+        "serverSide": true,
+        "ajax": "<?=base_url('_assets/data_json_barang.php')?>",
+        columnDefs : [
+                    {
+                        "searchable" : false,
+                        "orderable" : false,
+                        "targets" : 3,
+                        "width" : "140px",
+                        "render" : function(data, type, row){
+                            var btn = "<center><a href=\"edit.php?id="+data+"\" class=\"btn btn-warning btn-xs\"><i class=\"glyphicon glyphicon-edit\"></i> Edit</a> <a href=\"hapus?id="+data+"\" onclick=\"return confirm('Yakin akan menghapus data ini?')\" class=\"btn btn-danger btn-xs\"><i class=\"glyphicon glyphicon-trash\"></i> Hapus</a></center>"
+                            return btn
+                        }
+                    },
+                    // { targets : -1, visible: false }
+                ],
         language : 
                 {
                     "decimal":        "",
@@ -190,7 +199,7 @@ $(document).ready(function() {
                     "loadingRecords": "Memuat...",
                     "processing":     "Sedang memproses...",
                     "search":         "Cari: ",
-                    "zeroRecords":    "No matching records found",
+                    "zeroRecords":    "Tidak ada data yang cocok dengan pencarian",
                     "paginate": {
                         "first":      "Awal",
                         "last":       "Akhir",

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User_m extends CI_Model {
+class Barang_m extends CI_Model {
 
     public function get($id = null)
     {
@@ -15,19 +15,17 @@ class User_m extends CI_Model {
 
     public function tambah($post) 
     {
-        $param['nama'] = $post['nama'];
-        $param['username'] = $post['username'];
-        $param['password'] = sha1($post['password']);
-        $param['alamat'] = $post['alamat'];
-        $param['level'] = $post['level'];
-        $param['photo'] = $post['photo'];
+        $param['kode_barang'] = $post['kode'];
+        $param['nama_barang'] = $post['nama'];
+        $param['nama_toko'] = $post['toko'];
+        $param['id_user'] = $this->session->userdata('userid');
         $this->db->insert('tb_barang', $param);
     }
 
     public function hapus($id)
 	{
-        $this->db->where('id_user', $id);
-        $this->db->delete('user');
+        $this->db->where('id_barang', $id);
+        $this->db->delete('tb_barang');
     }
 
     public function edit($post)

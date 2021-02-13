@@ -24,7 +24,7 @@
                         <table class="table table-bordered table-striped" id="tabel_barang">
                             <thead>
                                 <tr>
-                                    <th class="text-center">No.</th>
+                                    <!-- <th class="text-center">No.</th> -->
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Nama Toko</th>
@@ -32,7 +32,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                <tr>
+                                <td></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
