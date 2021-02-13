@@ -20,32 +20,21 @@
                 </div>
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-lg-8 col-lg-offset-2">
-                            <form action="proses.php" method="post">
-                                <input type="hidden" name="total" value="<?=$_POST['jumlah_tambah']?>">
-                                <table class="table">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Nama Poliknik</th>
-                                        <th>Gedung</th>
-                                    </tr>
-                                    <?php
-                                    for ($i=1; $i<=$_POST['jumlah_tambah'] ; $i++) { ?>
-                                        <tr>
-                                            <td><?=$i?></td>
-                                            <td>
-                                                <input type="text" name="nama-<?=$i?>" class="form-control" required>
-                                            </td>
-                                            <td>
-                                                <input type="text" name="gedung-<?=$i?>" class="form-control" required>
-                                            </td>
-                                        </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </table>
-                                <div class="form-group pull-right">
-                                    <input type="submit" name="tambah" value="Simpan Semua" class="btn btn-success">
+                        <div class="col-md-4 col-md-offset-4">
+                            <form action="" method="post">
+                                <div class="form-group <?=form_error('kode') ? 'has-error' : null?>">
+                                    <label for="kode">Kode Barang *</label>
+                                    <input type="text" name="kode" value="<?=set_value('kode')?>" class="form-control" autofocus>
+                                    <?=form_error('kode')?>
+                                </div>
+                                <div class="form-group <?=form_error('nama') ? 'has-error' : null?>">
+                                    <label for="nama">Nama Barang *</label>
+                                    <input type="text" name="nama" value="<?=set_value('nama')?>" class="form-control">
+                                    <?=form_error('nama')?>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" id="submit" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Simpan</button>
+                                    <button type="reset" class="btn btn-sm"><i class="fa fa-refresh"></i> Reset</button>
                                 </div>
                             </form>
                         </div>

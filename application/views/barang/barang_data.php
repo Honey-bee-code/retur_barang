@@ -7,7 +7,9 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="pull-right">
-                <a href="<?=site_url('barang/generate')?>" class="btn btn-primary btn-sm">
+                <a href="<?=site_url('barang/generate')?>" class="btn btn-info btn-sm">
+                <i class="fa fa-plus"></i> Tambah Banyak Data</a>
+                <a href="<?=site_url('barang/tambah')?>" class="btn btn-primary btn-sm">
                 <i class="fa fa-plus"></i> Tambah Data</a>
             </div>
         </div>

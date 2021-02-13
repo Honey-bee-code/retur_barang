@@ -12,8 +12,16 @@ class Barang_m extends CI_Model {
         $query = $this->db->get();
         return $query;
     }
-    
+
     public function tambah($post) 
+    {
+        $param['kode_barang'] = $post['kode'];
+        $param['nama_barang'] = $post['nama'];
+        $param['id_user'] = $this->session->userdata('userid');
+        $this->db->insert('tb_barang', $param);
+    }
+
+    public function tambah_banyak($post) 
     {
         $param['kode_barang'] = $post['kode'];
         $param['nama_barang'] = $post['nama'];

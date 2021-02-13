@@ -29,9 +29,8 @@ class Barang extends CI_Controller {
 
 	public function generate()
 	{
+		$total = $this->input->post(null, TRUE);
 		$this->template->load('template', 'barang/generate');
-		$this->input->post(null, TRUE);
-		echo "<script>window.location='" .site_url('barang/tambah'). "'</script>";
 	}
 
 	public function tambah()
@@ -47,6 +46,30 @@ class Barang extends CI_Controller {
 
         if($this->form_validation->run() == FALSE) {
             $this->template->load('template', 'barang/barang_form_tambah');
+        } else {
+            $post = $this->input->post(null, TRUE);
+           
+			$this->barang_m->tambah($post);
+			if($this->db->affected_rows() > 0){
+				echo "<script>alert('Data berhasil disimpan')</script>";
+			}
+			echo "<script>window.location='" .site_url('barang'). "'</script>";
+        }
+	}
+
+	public function tambah_banyak()
+	{
+		
+		$this->form_validation->set_rules('kode', 'Kode barang', 'required|is_unique[tb_barang.kode_barang]');
+		$this->form_validation->set_rules('nama', 'Nama Barang', 'required');
+
+        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+
+		$this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+		$this->form_validation->set_message('is_unique', '{field} sudah dipakai, silahkan coba yang lain');
+
+        if($this->form_validation->run() == FALSE) {
+            $this->template->load('template', 'barang/barang_form_tambah_banyak');
         } else {
             $post = $this->input->post(null, TRUE);
            
