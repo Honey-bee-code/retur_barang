@@ -132,7 +132,7 @@ $(document).ready(function() {
         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
         "processing": true,
         "serverSide": true,
-        "ajax": "<?=base_url('_assets/data_json_barang.php')?>",
+        "ajax": "<?=base_url('barang/data_json')?>",
         // menambahkan nomor urut
         "fnCreatedRow": function (row, data, index) {
                         $('td', row).eq(0).html(index + 1);
