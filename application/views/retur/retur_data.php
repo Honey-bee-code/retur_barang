@@ -23,7 +23,7 @@
                         <table class="table table-bordered table-striped" id="tabel_retur">
                             <thead>
                                 <tr>
-                                    <th class="text-center">No.</th>
+                                    <!-- <th class="text-center">No.</th> -->
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
                                     <th>Kondisi</th>

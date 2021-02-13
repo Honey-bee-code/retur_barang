@@ -86,10 +86,7 @@
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Opsi 1<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li <?=$this->uri->segment(1) == 'retur' ? 'style="background-color: #DCDCDC"' : ''?>>
-                                    <a href="<?=site_url('retur')?>">Form Retur</a>
-                                </li>
-                                <li>
-                                    <a href="#">Laporan</a>
+                                    <a href="<?=site_url('retur')?>">Data Retur</a>
                                 </li>
                             </ul>
                         </li>
@@ -130,61 +127,34 @@
 <script src="<?=base_url()?>_assets/js/sb-admin.js"></script>
 <script>
 $(document).ready(function() {
-    $('#tabel_retur').dataTable({
-        "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
-        
-        columnDefs: [
-            {
-                "searchable": false,
-                "orderable": false,
-                "targets": [0, 6]
-            }
-        ],
-        order: [1, "asc"],
-        language : 
-                {
-                    "decimal":        "",
-                    "emptyTable":     "Data tidak ditemukan",
-                    "info":           "Menampilkan _START_ sampai _END_ dari _TOTAL_ jumlah data",
-                    "infoEmpty":      "Menampilkan 0 sampai 0 dari 0 data",
-                    "infoFiltered":   "(filtered from _MAX_ total entries)",
-                    "infoPostFix":    "",
-                    "thousands":      ",",
-                    "lengthMenu":     "Tampilkan _MENU_ data",
-                    "loadingRecords": "Memuat...",
-                    "processing":     "Sedang memproses...",
-                    "search":         "Cari: ",
-                    "zeroRecords":    "No matching records found",
-                    "paginate": {
-                        "first":      "Awal",
-                        "last":       "Akhir",
-                        "next":       "Sesudahnya",
-                        "previous":   "Sebelumnya"
-                    },
-                    "aria": {
-                        "sortAscending":  ": activate to sort column ascending",
-                        "sortDescending": ": activate to sort column descending"
-                    }
-                }
-    });
-
+    
     $('#tabel_barang').dataTable({
         "lengthMenu": [[5, 10, 25, 50, -1], [5, 10, 25, 50, "All"]],
         "processing": true,
         "serverSide": true,
         "ajax": "<?=base_url('_assets/data_json_barang.php')?>",
+        // menambahkan nomor urut
+        "fnCreatedRow": function (row, data, index) {
+                        $('td', row).eq(0).html(index + 1);
+                        },
+        order: [1, "asc"],
         columnDefs : [
                     {
                         "searchable" : false,
                         "orderable" : false,
-                        "targets" : 3,
+                        "targets" : 4,
                         "width" : "140px",
                         "render" : function(data, type, row){
                             var btn = "<center><a href=\"barang/edit/"+data+"\" class=\"btn btn-warning btn-xs\"><i class=\"glyphicon glyphicon-edit\"></i> Edit</a> <a href=\"barang/hapus/"+data+"\" onclick=\"return confirm('Yakin akan menghapus data ini?')\" class=\"btn btn-danger btn-xs\"><i class=\"glyphicon glyphicon-trash\"></i> Hapus</a></center>"
                             return btn
                         }
                     },
-                    // { targets : -1, visible: false }
+                    {
+                        "searchable" : false,
+                        "orderable" : false,
+                        "targets" : 0,
+                        "width" : "30px",
+                    }
                 ],
         language : 
                 {

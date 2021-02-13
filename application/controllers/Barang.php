@@ -33,7 +33,6 @@ class Barang extends CI_Controller {
 		
 		$this->form_validation->set_rules('kode', 'Kode barang', 'required|is_unique[tb_barang.kode_barang]');
 		$this->form_validation->set_rules('nama', 'Nama Barang', 'required');
-		$this->form_validation->set_rules('toko', 'Toko', 'required');
 
         $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
 
@@ -72,7 +71,6 @@ class Barang extends CI_Controller {
     {
         $this->form_validation->set_rules('kode', 'Kode barang', 'required|callback_cek_kode');
 		$this->form_validation->set_rules('nama', 'Nama Barang', 'required');
-		$this->form_validation->set_rules('toko', 'Toko', 'required');
 
         $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
 

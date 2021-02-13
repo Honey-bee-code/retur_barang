@@ -29,10 +29,12 @@ $primaryKey = 'id_barang';
 // parameter represents the DataTables column identifier. In this case simple
 // indexes
 $columns = array(
-    array( 'db' => 'kode_barang', 'dt' => 0 ),
-    array( 'db' => 'nama_barang', 'dt' => 1 ),
-    array( 'db' => 'nama_toko',   'dt' => 2 ),
-    array( 'db' => 'id_barang',   'dt' => 3 ),
+
+    array( 'db' => '',   'dt' => 0 ),
+    array( 'db' => 'kode_barang', 'dt' => 1 ),
+    array( 'db' => 'nama_barang', 'dt' => 2 ),
+    array( 'db' => 'qty',         'dt' => 3 ),
+    array( 'db' => 'id_barang',   'dt' => 4 ),
 
 );
  

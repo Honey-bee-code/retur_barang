@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
                             <form action="" method="post">
-                                <input type="text" name="id" value="<?=$row->id_barang?>">
+                                <input type="hidden" name="id" value="<?=$row->id_barang?>">
                                 <div class="form-group <?=form_error('kode') ? 'has-error' : null?>">
                                     <label for="kode">Kode Barang *</label>
                                     <input type="text" name="kode" value="<?=$this->input->post('kode') ?? $row->kode_barang?>" class="form-control">
@@ -32,11 +32,6 @@
                                     <label for="nama">Nama Barang *</label>
                                     <input type="text" name="nama" value="<?=$this->input->post('nama') ?? $row->nama_barang?>" class="form-control">
                                     <?=form_error('nama')?>
-                                </div>
-                                <div class="form-group <?=form_error('toko') ? 'has-error' : null?>">
-                                    <label for="toko">Nama Toko *</label>
-                                    <input type="text" name="toko" value="<?=$this->input->post('toko') ?? $row->nama_toko?>" class="form-control">
-                                    <?=form_error('toko')?>
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" id="submit" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Simpan</button>

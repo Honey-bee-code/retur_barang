@@ -17,7 +17,6 @@ class Barang_m extends CI_Model {
     {
         $param['kode_barang'] = $post['kode'];
         $param['nama_barang'] = $post['nama'];
-        $param['nama_toko'] = $post['toko'];
         $param['id_user'] = $this->session->userdata('userid');
         $this->db->insert('tb_barang', $param);
     }
@@ -32,7 +31,6 @@ class Barang_m extends CI_Model {
     {
         $param['kode_barang'] = $post['kode'];
         $param['nama_barang'] = $post['nama'];
-        $param['nama_toko'] = $post['toko'];
         $param['id_user'] = $this->session->userdata('userid');
         $this->db->where('id_barang', $post['id']);
         $this->db->update('tb_barang', $param);

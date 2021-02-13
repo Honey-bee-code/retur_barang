@@ -24,9 +24,10 @@
                         <table class="table table-bordered table-striped table-hover" id="tabel_barang">
                             <thead>
                                 <tr>
+                                    <th>No.</th>
                                     <th>Kode Barang</th>
                                     <th>Nama Barang</th>
-                                    <th>Nama Toko</th>
+                                    <th>Qty</th>
                                     <th class="text-center">Opsi</th>
                                 </tr>
                             </thead>

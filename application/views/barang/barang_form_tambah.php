@@ -32,11 +32,6 @@
                                     <input type="text" name="nama" value="<?=set_value('nama')?>" class="form-control">
                                     <?=form_error('nama')?>
                                 </div>
-                                <div class="form-group <?=form_error('toko') ? 'has-error' : null?>">
-                                    <label for="toko">Nama Toko *</label>
-                                    <input type="text" name="toko" value="<?=set_value('toko')?>" class="form-control">
-                                    <?=form_error('toko')?>
-                                </div>
                                 <div class="form-group">
                                     <button type="submit" id="submit" class="btn btn-success btn-sm"><i class="fa fa-save"></i> Simpan</button>
                                     <button type="reset" class="btn btn-sm"><i class="fa fa-refresh"></i> Reset</button>
