@@ -68,7 +68,7 @@
             <div class="navbar-default navbar-static-side" role="navigation">
                 <div class="sidebar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li <?=$this->uri->segment(1) == 'barang' || $this->uri->segment(1) == 'good' ? 'class="active"' : ''?>>
+                        <li <?=$this->uri->segment(1) == 'barang' || $this->uri->segment(1) == 'retur' || $this->uri->segment(1) == 'good' ? 'class="active"' : ''?>>
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> Master Data<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'all' ? 'style="background-color: #DCDCDC"' : ''?>>
@@ -80,17 +80,12 @@
                                 <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'bad' ? 'style="background-color: #DCDCDC"' : ''?>>
                                     <a href="<?=base_url('barang/bad')?>">Bad Product</a>
                                 </li>
+                        <li <?=$this->uri->segment(1) == 'retur' ? 'style="background-color: #DCDCDC"' : ''?>>
+                            <a href="<?=site_url('retur')?>">Data Retur</a>
+                        </li>
                             </ul>
                         </li>
-                        <li <?=$this->uri->segment(1) == 'retur' || $this->uri->segment(1) == 'laporan' ? 'class="active"' : ''?>>
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Opsi 1<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li <?=$this->uri->segment(1) == 'retur' ? 'style="background-color: #DCDCDC"' : ''?>>
-                                    <a href="<?=site_url('retur')?>">Data Retur</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Opsi 2<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
@@ -100,7 +95,7 @@
                                     <a href="#">Laporan</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                     <!-- /#side-menu -->
                 </div>
@@ -254,9 +249,9 @@ $(document).ready(function() {
                         "searchable" : false,
                         "orderable" : false,
                         "targets" : 8,
-                        "width" : "140px",
+                        "width" : "80px",
                         "render" : function(data, type, row){
-                            var btn = "<center><a href=\"retur/edit/"+data+"\" class=\"btn btn-warning btn-xs\"><i class=\"glyphicon glyphicon-edit\"></i> Edit</a> <a href=\"retur/hapus/"+data+"\" onclick=\"return confirm('Yakin akan menghapus data ini?')\" class=\"btn btn-danger btn-xs\"><i class=\"glyphicon glyphicon-trash\"></i> Hapus</a></center>"
+                            var btn = "<center><a href=\"retur/hapus/"+data+"\" onclick=\"return confirm('Yakin akan menghapus data ini?')\" class=\"btn btn-danger btn-xs\"><i class=\"glyphicon glyphicon-trash\"></i> Hapus</a></center>"
                             return btn
                         }
                     },

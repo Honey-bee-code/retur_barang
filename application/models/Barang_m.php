@@ -12,7 +12,7 @@ class Barang_m extends CI_Model {
         $query = $this->db->get();
         return $query;
     }
-
+    
     public function tambah($post) 
     {
         $param['kode_barang'] = $post['kode'];
@@ -35,5 +35,23 @@ class Barang_m extends CI_Model {
         $this->db->where('id_barang', $post['id']);
         $this->db->update('tb_barang', $param);
     }
+
+    function tambah_qty($data) 
+    {
+        $qty = $data['qty'];
+        $id = $data['barang'];
+        $sql = "UPDATE tb_barang SET qty = qty + '$qty' WHERE id_barang = '$id'";
+        $this->db->query($sql);
+    }
+
+    function kurang_qty($data) 
+    {
+        $qty = $data->qty;
+        $id = $data->id_barang;
+        $sql = "UPDATE tb_barang SET qty = qty - '$qty' WHERE id_barang = '$id'";
+        $this->db->query($sql);
+    }
+
+    
 
 }

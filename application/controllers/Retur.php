@@ -7,7 +7,8 @@ class Retur extends CI_Controller {
     {
         parent::__construct();
         tidak_login();
-        $this->load->model('retur_m');
+		$this->load->model('retur_m');
+		$this->load->model('barang_m');
         $this->load->library('form_validation');         
     }
 
@@ -46,6 +47,7 @@ class Retur extends CI_Controller {
             $post = $this->input->post(null, TRUE);
            
 			$this->retur_m->tambah($post);
+			$this->barang_m->tambah_qty($post);
 			if($this->db->affected_rows() > 0){
 				echo "<script>alert('Data berhasil disimpan')</script>";
 			}
@@ -55,10 +57,9 @@ class Retur extends CI_Controller {
 
 	public function hapus($id)
     {
-        
-		
-        $this->retur_m->hapus($id);
-        // $error = $this->db->error();
+        $data = $this->get($id)->row();
+		$this->retur_m->hapus($id);
+		$this->barang_m->kurang_qty($data);
 		if($this->db->affected_rows() > 0){
             echo "<script>alert('Data berhasil dihapus')</script>";
         }
@@ -66,38 +67,39 @@ class Retur extends CI_Controller {
         
 	}
 
-	public function edit($id)
-    {
-        $this->form_validation->set_rules('kurir', 'Yang bawa barang', 'required');
-		$this->form_validation->set_rules('barang', 'Barang', 'required');
-		$this->form_validation->set_rules('toko', 'Toko', 'required');
-		$this->form_validation->set_rules('qty', 'Quantity', 'required|greater_than[0]', 
-		array('greater_than' =>'Jumlah %s minimal 1'));
-		$this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
+	// public function edit($id)
+    // {
+    //     $this->form_validation->set_rules('kurir', 'Yang bawa barang', 'required');
+	// 	$this->form_validation->set_rules('barang', 'Barang', 'required');
+	// 	$this->form_validation->set_rules('toko', 'Toko', 'required');
+	// 	$this->form_validation->set_rules('qty', 'Quantity', 'required|greater_than[0]', 
+	// 	array('greater_than' =>'Jumlah %s minimal 1'));
+	// 	$this->form_validation->set_rules('kondisi', 'Kondisi', 'required');
 
-        $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
+    //     $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
 
-        $this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
+    //     $this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
 
-        if($this->form_validation->run() == FALSE) {
-			$query = $data['row'] = $this->retur_m->get($id);
-            if($query->num_rows() > 0){
-                $data['row'] = $query->row();
-				$this->template->load('template', 'retur/retur_form_edit', $data);
-			} else {
-				echo "<script>alert('Data tidak ditemukan');";
-				echo "window.location='" .site_url('retur'). "';</script>";
-			}
-        } else {
-            $post = $this->input->post(null, TRUE);
+    //     if($this->form_validation->run() == FALSE) {
+	// 		$query = $data['row'] = $this->retur_m->get($id);
+    //         if($query->num_rows() > 0){
+    //             $data['row'] = $query->row();
+	// 			$this->template->load('template', 'retur/retur_form_edit', $data);
+	// 		} else {
+	// 			echo "<script>alert('Data tidak ditemukan');";
+	// 			echo "window.location='" .site_url('retur'). "';</script>";
+	// 		}
+    //     } else {
+    //         $post = $this->input->post(null, TRUE);
            
-			$this->retur_m->edit($post);
-			if($this->db->affected_rows() > 0){
-				echo "<script>alert('Data berhasil disimpan')</script>";
-			}
-			echo "<script>window.location='" .site_url('retur'). "'</script>";
-        }
-	}
+	// 		$this->retur_m->edit($post);
+	// 		$this->barang_m->tambah_qty($post);
+	// 		if($this->db->affected_rows() > 0){
+	// 			echo "<script>alert('Data berhasil disimpan')</script>";
+	// 		}
+	// 		echo "<script>window.location='" .site_url('retur'). "'</script>";
+    //     }
+	// }
 	
 	public function data_json()
 	{

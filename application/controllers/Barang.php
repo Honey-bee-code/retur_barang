@@ -13,7 +13,8 @@ class Barang extends CI_Controller {
 
 	public function index()
 	{
-		$this->template->load('template', 'barang/barang_data'); 
+		$data['row'] = $this->barang_m->get();
+		$this->template->load('template', 'barang/barang_data', $data); 
 	}
 
 	public function get($id = null)
@@ -24,6 +25,13 @@ class Barang extends CI_Controller {
         }
         $query = $this->db->get();
         return $query;
+	}
+
+	public function generate()
+	{
+		$this->template->load('template', 'barang/generate');
+		$this->input->post(null, TRUE);
+		echo "<script>window.location='" .site_url('barang/tambah'). "'</script>";
 	}
 
 	public function tambah()
@@ -54,7 +62,10 @@ class Barang extends CI_Controller {
     {
 		
         $this->barang_m->hapus($id);
-        // $error = $this->db->error();
+		$error = $this->db->error();
+		if($error['code'] != null){
+            echo "<script>alert('Data tidak bisa dihapus karena sudah berelasi')</script>";
+		}
 		if($this->db->affected_rows() > 0){
             echo "<script>alert('Data berhasil dihapus')</script>";
         }

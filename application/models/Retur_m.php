@@ -34,20 +34,20 @@ class Retur_m extends CI_Model {
         $this->db->delete('tb_retur');
     }
 
-    public function edit($post)
-    {
-        $param['id_barang'] = $post['barang'];
-        $param['kode_barang'] = $post['kode_barang'];
-        $param['nama_barang'] = $post['nama_barang'];
-        $param['kondisi'] = $post['kondisi'];
-        $param['qty'] = $post['qty'];
-        $param['toko'] = $post['toko'];
-        $param['kurir'] = $post['kurir'];
-        $param['tanggal'] = $post['tanggal'];
-        $param['id_user'] = $this->session->userdata('userid');
+    // public function edit($post)
+    // {
+    //     $param['id_barang'] = $post['barang'];
+    //     $param['kode_barang'] = $post['kode_barang'];
+    //     $param['nama_barang'] = $post['nama_barang'];
+    //     $param['kondisi'] = $post['kondisi'];
+    //     $param['qty'] = $post['qty'];
+    //     $param['toko'] = $post['toko'];
+    //     $param['kurir'] = $post['kurir'];
+    //     $param['tanggal'] = $post['tanggal'];
+    //     $param['id_user'] = $this->session->userdata('userid');
 
-        $this->db->where('id_retur', $post['id']);
-        $this->db->update('tb_retur', $param);
-    }
+    //     $this->db->where('id_retur', $post['id']);
+    //     $this->db->update('tb_retur', $param);
+    // }
 
 }
