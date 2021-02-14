@@ -71,14 +71,14 @@
                         <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == '' ? 'style="background-color: #FFFFFF"' : ''?>>
                             <a href="<?=base_url('barang')?>"><i class="fa fa-dashboard fa-fw"></i> Data Barang</a>
                         </li>
+                        <li <?=$this->uri->segment(1) == 'retur' ? 'style="background-color: #FFFFFF"' : ''?>>
+                            <a href="<?=site_url('retur')?>"><i class="fa fa-tasks fa-fw"></i> Data Retur</a>
+                        </li>
                         <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'good' ? 'style="background-color: #FFFFFF"' : ''?>>
-                            <a href="<?=base_url('barang/good')?>"><i class="fa fa-dashboard fa-fw"></i> Good Product</a>
+                            <a href="<?=base_url('barang/good')?>"><i class="fa fa-thumbs-o-up fa-fw"></i> Good Product</a>
                         </li>
                         <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'bad' ? 'style="background-color: #FFFFFF"' : ''?>>
-                            <a href="<?=base_url('barang/bad')?>"><i class="fa fa-dashboard fa-fw"></i> Bad Product</a>
-                        </li>
-                        <li <?=$this->uri->segment(1) == 'retur' ? 'style="background-color: #FFFFFF"' : ''?>>
-                            <a href="<?=site_url('retur')?>"><i class="fa fa-dashboard fa-fw"></i> Data Retur</a>
+                            <a href="<?=base_url('barang/bad')?>"><i class="fa fa-thumbs-o-down fa-fw"></i> Bad Product</a>
                         </li>
                     </ul>
                     <!-- /#side-menu -->

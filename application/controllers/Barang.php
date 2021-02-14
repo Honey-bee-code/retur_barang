@@ -234,12 +234,12 @@ class Barang extends CI_Controller {
 	public function good()
 	{
 		tidak_login();
-		$this->template->load('template', 'barang/barang_good');
+		$this->template->load('template', 'laporan/barang_good');
 	}
 	
 	public function bad()
 	{
 		tidak_login();
-		$this->template->load('template', 'barang/barang_bad');
+		$this->template->load('template', 'laporan/barang_bad');
 	}
 }
