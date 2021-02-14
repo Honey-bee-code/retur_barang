@@ -13,6 +13,7 @@
     <link href="<?=base_url()?>_assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?=base_url()?>_assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="<?=base_url()?>_assets/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
     <!-- SB Admin CSS - Include with every page -->
     <link href="<?=base_url()?>_assets/css/sb-admin.css" rel="stylesheet">
 
@@ -75,10 +76,10 @@
                             <a href="<?=site_url('retur')?>"><i class="fa fa-tasks fa-fw"></i> Data Retur</a>
                         </li>
                         <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'good' ? 'style="background-color: #FFFFFF"' : ''?>>
-                            <a href="<?=base_url('barang/good')?>"><i class="fa fa-thumbs-o-up fa-fw"></i> Good Product</a>
+                            <a href="<?=base_url('good')?>"><i class="fa fa-thumbs-o-up fa-fw"></i> Good Product</a>
                         </li>
                         <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'bad' ? 'style="background-color: #FFFFFF"' : ''?>>
-                            <a href="<?=base_url('barang/bad')?>"><i class="fa fa-thumbs-o-down fa-fw"></i> Bad Product</a>
+                            <a href="<?=base_url('bad')?>"><i class="fa fa-thumbs-o-down fa-fw"></i> Bad Product</a>
                         </li>
                     </ul>
                     <!-- /#side-menu -->
@@ -160,6 +161,7 @@ $(document).ready(function() {
                         "sortDescending": ": activate to sort column descending"
                     }
                 }
+                
     });
 
     $('#tabel_barang_modal').dataTable({

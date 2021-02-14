@@ -24,7 +24,19 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                <?php
+                                $no = 1;
+                                foreach($row->result() as $key => $data) { ?>
+                                <tr>
+                                    <td><?=$no++?></td>
+                                    <td><?=$data->tanggal?></td>
+                                    <td><?=$data->kode_barang?></td>
+                                    <td><?=$data->nama_barang?></td>
+                                    <td><?=$data->qty?></td>
+                                    <td><?=$data->toko?></td>
+                                    <td><?=$data->kurir?></td>
+                                </tr>
+                                <?php } ?>
                             </tbody>
                         </table>
                     </div>

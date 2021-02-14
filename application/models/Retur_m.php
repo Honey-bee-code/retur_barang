@@ -13,6 +13,24 @@ class Retur_m extends CI_Model {
         return $query;
     }
 
+    public function get_good()
+    {
+        $kondisi = "Good";
+        $this->db->from('tb_retur '); 
+        $this->db->where('kondisi', $kondisi);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    public function get_bad()
+    {
+        $kondisi = "Bad";
+        $this->db->from('tb_retur '); 
+        $this->db->where('kondisi', $kondisi);
+        $query = $this->db->get();
+        return $query;
+    }
+
     public function tambah($post) 
     {
         $param['id_barang'] = $post['barang'];
