@@ -59,40 +59,45 @@ class Barang extends CI_Controller {
 
 	public function tambah_banyak_form()
 	{
-		// $total = $this->input->post('total');
-		// for ($i=1; $i<= $total ; $i++) {
 		
-		// $this->form_validation->set_rules('kode-'.$i, 'Kode barang', 'required|is_unique[tb_barang.kode_barang]');
-		// $this->form_validation->set_rules('nama-'.$i, 'Nama Barang', 'required');
-
-        // $this->form_validation->set_message('required', '%s masih kosong, silahkan isi');
-
-		// $this->form_validation->set_error_delimiters('<span class="help-block">', '</span>');
-		// $this->form_validation->set_message('is_unique', '{field} sudah dipakai, silahkan coba yang lain');
-
-		// }
-
-        // if($this->form_validation->run() == FALSE) {
 
 		$this->template->load('template', 'barang/barang_form_tambah_banyak');
-		// }
 	}
 
 	public function tambah_banyak_proses()
 	{
-		
-        //     $this->template->load('template', 'barang/barang_form_tambah_banyak');
-        // } else {
-            $post = $this->input->post(null, TRUE);
-           
-			$this->barang_m->tambah_banyak($post);
-			if($this->db->affected_rows() > 0){
-				echo "<script>alert('Data berhasil disimpan')</script>";
-			} else{
-				echo "<script>alert('Data gagal disimpan')</script>";
-			}
-			echo "<script>window.location='" .site_url('barang'). "'</script>";
-        // }
+		       
+		$post = $this->input->post(null, TRUE);
+			// $total = $post['total'];
+
+			// for ($i=1; $i <= $total; $i++) {
+			// 	$kode_barang = addslashes($post['kode-'.$i]);
+			// 		$query = $this->db->query("SELECT * FROM tb_barang WHERE kode_barang = '$kode_barang' ");
+			// 		if($query->num_rows() > 0){
+			// 			$kode = array($kode_barang);
+			// 			foreach($kode as $key){
+			// 				echo "<script>alert('Kode barang ".$key." sudah pernah dipakai'); </script>";
+			// 				echo "<script>window.location='" .site_url('barang'). "'</script>";
+			// 			}
+						// $this->barang_m->tambah_banyak($post);
+					// 	echo "<script>alert('Data gagal disimpan')</script>";
+						
+					// } else {
+					// 	echo "<script>alert('Data berhasil disimpan')</script>";
+					// }
+					// echo $kode."<br>";
+					// }
+					
+					
+		$this->barang_m->tambah_banyak($post);
+		if($this->db->affected_rows() > 0){
+			echo "<script>alert('Data berhasil disimpan')</script>";
+		} else{
+			echo "<script>alert('Data gagal disimpan')</script>";
+		}
+		echo "<script>window.location='" .site_url('barang'). "'</script>";
+			
+
 	}
 
 	public function hapus($id)
@@ -149,9 +154,8 @@ class Barang extends CI_Controller {
         } else {
             return TRUE;
         }
-    } 
+	} 
 
-	
 	public function data_json()
 	{
 		// DB table to use
