@@ -75,10 +75,10 @@
                         <li <?=$this->uri->segment(1) == 'retur' ? 'style="background-color: #FFFFFF"' : ''?>>
                             <a href="<?=site_url('retur')?>"><i class="fa fa-tasks fa-fw"></i> Data Retur</a>
                         </li>
-                        <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'good' ? 'style="background-color: #FFFFFF"' : ''?>>
+                        <li <?=$this->uri->segment(1) == 'good' ? 'style="background-color: #FFFFFF"' : ''?>>
                             <a href="<?=base_url('good')?>"><i class="fa fa-thumbs-o-up fa-fw"></i> Good Product</a>
                         </li>
-                        <li <?=$this->uri->segment(1) == 'barang' && $this->uri->segment(2) == 'bad' ? 'style="background-color: #FFFFFF"' : ''?>>
+                        <li <?=$this->uri->segment(1) == 'bad' ? 'style="background-color: #FFFFFF"' : ''?>>
                             <a href="<?=base_url('bad')?>"><i class="fa fa-thumbs-o-down fa-fw"></i> Bad Product</a>
                         </li>
                     </ul>

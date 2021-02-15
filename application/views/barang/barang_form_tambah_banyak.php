@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-lg-8 col-lg-offset-2">
                             <form action="<?=site_url('barang/tambah_banyak_proses')?>" method="post">
-                                <input type="text" name="total" value="<?=$this->input->post('jumlah_tambah')?>">
+                                <input type="hidden" name="total" value="<?=$this->input->post('jumlah_tambah')?>">
                                 <table class="table">
                                     <tr>
                                         <th>No.</th>
@@ -40,9 +40,7 @@
                                                 <input type="text" name="nama-<?=$i?>" class="form-control" required>
                                             </td>
                                         </tr>
-                                    <?php
-                                    }
-                                    ?>
+                                    <?php } ?>
                                 </table>
                                 <div class="form-group pull-right">
                                     <input type="submit" name="tambah" value="Simpan Semua" class="btn btn-success">
