@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="pull-right">
-                <a href="<?=site_url('barang')?>" class="btn btn-warning btn-sm">
+                <a href="<?=site_url('barang/generate')?>" class="btn btn-warning btn-sm">
                 <i class="fa fa-undo"></i> Kembali</a>
             </div>
         </div>
@@ -35,6 +35,7 @@
                                             <td><?=$i?></td>
                                             <td>
                                                 <input type="text" name="kode-<?=$i?>" class="form-control" required>
+                                                <small style="color: grey">Ingat : kode barang tidak boleh sama</small>
                                             </td>
                                             <td>
                                                 <input type="text" name="nama-<?=$i?>" class="form-control" required>
